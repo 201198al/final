@@ -109,3 +109,51 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+header h1 {
+  color: teal;
+}
+
+header a {
+  text-decoration: none;
+  color: black;
+}
+
+section {
+  padding: 40px;
+}
+
+button {
+  background: teal;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: darkcyan;
+}
+.tariffs {
+  display: flex;
+  gap: 20px;
+}
+
+.card {
+  border: 1px solid #ccc;
+  padding: 20px;
+  width: 150px;
+  border-radius: 10px;
+  text-align: center;
+}
