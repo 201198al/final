@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Search() {
   const [inn, setInn] = useState("");
+  const navigate = useNavigate();
 
   const handleSearch = () => {
-    alert("Ищем по ИНН: " + inn);
+    navigate("/result", { state: { inn } });
   };
 
   return (

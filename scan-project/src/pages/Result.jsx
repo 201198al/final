@@ -1,14 +1,19 @@
+import { useLocation } from "react-router-dom";
+
 function Result() {
+  const location = useLocation();
+  const inn = location.state?.inn;
+
   return (
     <div>
-      <h2>Результаты</h2>
+      <h2>Результаты поиска</h2>
 
-      <div className="card">
-        <p>Новость 1: Компания растет</p>
-      </div>
+      <p>Вы искали ИНН: {inn}</p>
 
-      <div className="card">
-        <p>Новость 2: Новый контракт</p>
+      <div>
+        <p>Новость 1 про компанию</p>
+        <p>Новость 2 про компанию</p>
+        <p>Новость 3 про компанию</p>
       </div>
     </div>
   );
