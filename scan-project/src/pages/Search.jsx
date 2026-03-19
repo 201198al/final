@@ -1,12 +1,10 @@
-import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 function Search() {
   const [inn, setInn] = useState("");
-  const navigate = useNavigate();
 
   const handleSearch = () => {
-    navigate("/result");
+    alert("Ищем по ИНН: " + inn);
   };
 
   return (
@@ -20,9 +18,7 @@ function Search() {
         onChange={(e) => setInn(e.target.value)}
       />
 
-      <br />
-
-      <button onClick={handleSearch}>Искать</button>
+      <button onClick={handleSearch}>Поиск</button>
     </div>
   );
 }
