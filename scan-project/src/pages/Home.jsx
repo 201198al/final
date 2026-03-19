@@ -15,7 +15,9 @@ function Home() {
       <section>
         <h2>Сервис по поиску публикаций</h2>
         <p>Анализируем новости и данные</p>
-        <button>Начать поиск</button>
+       <Link to="/search">
+      <button>Начать поиск</button>
+      </Link> 
       </section>
 
      
