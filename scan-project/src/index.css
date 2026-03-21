@@ -157,3 +157,15 @@ button:hover {
   border-radius: 10px;
   text-align: center;
 }
+.news {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.news-card {
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 10px;
+  width: 200px;
+}
