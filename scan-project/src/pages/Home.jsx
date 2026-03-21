@@ -4,7 +4,7 @@ function Home() {
   const navigate = useNavigate();
 
   return (
-    <div>
+    <div className="container">
       <header>
         <h1>SCAN</h1>
         <nav>

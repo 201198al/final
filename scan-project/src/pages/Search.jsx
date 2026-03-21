@@ -10,7 +10,7 @@ function Search() {
   };
 
   return (
-    <div>
+    <div className="container">
       <h2>Поиск компании</h2>
 
       <input
