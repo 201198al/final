@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+const [limit, setLimit] = useState(10);
 
 function Search() {
  const [inn, setInn] = useState("");
@@ -18,6 +19,10 @@ const [error, setError] = useState("");
 
 const handleSearch = () => {
   if (inn.length !== 10 && inn.length !== 12) {
+    if (limit < 1 || limit > 1000) {
+  setError("Количество должно быть от 1 до 1000");
+  return;
+}
     setError("ИНН должен быть 10 или 12 цифр");
     return;
   }
@@ -78,5 +83,11 @@ const handleSearch = () => {
     </div>
   );
 }
+<input
+  type="number"
+  placeholder="Количество документов"
+  value={limit}
+  onChange={(e) => setLimit(e.target.value)}
+/>
 
 export default Search;
