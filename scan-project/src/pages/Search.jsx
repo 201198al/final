@@ -1,13 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Search() {
   const [inn, setInn] = useState("");
   const navigate = useNavigate();
 
-  const handleSearch = () => {
-    navigate("/result", { state: { inn } });
-  };
+ 
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      navigate("/");
+    }
+  }, []);
+
+ const handleSearch = () => {
+  localStorage.setItem("inn", inn);
+  navigate("/result");
+};
 
   return (
     <div className="container">

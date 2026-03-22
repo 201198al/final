@@ -118,16 +118,31 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 20px 30px;
+  background: #ffffff;
+  border-bottom: 2px solid #0f8a83;
+  margin-bottom: 30px;
 }
 
 header h1 {
-  color: teal;
+  color: #0f8a83;
+  font-size: 32px;
+  letter-spacing: 2px;
 }
 
 header a {
   text-decoration: none;
-  color: black;
+  color: #0f8a83;
+  font-weight: bold;
+  border: 1px solid #0f8a83;
+  padding: 8px 15px;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+header a:hover {
+  background: #0f8a83;
+  color: white;
 }
 
 section {

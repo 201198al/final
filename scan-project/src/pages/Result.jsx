@@ -1,48 +1,34 @@
-import { useLocation, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 function Result() {
-  const location = useLocation();
-  const navigate = useNavigate();
-  const inn = location.state?.inn;
+  const inn = localStorage.getItem("inn");
 
-  const [news, setNews] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [visible, setVisible] = useState(3);
 
-  useEffect(() => {
-    setTimeout(() => {
-      const fakeData = [
-        { id: 1, title: "Компания растет", text: "Доход увеличился на 20%" },
-        { id: 2, title: "Новая сделка", text: "Подписан крупный контракт" },
-        { id: 3, title: "Расширение", text: "Открытие нового офиса" },
-      ];
-
-      setNews(fakeData);
-      setLoading(false);
-    }, 1500);
-  }, []);
+  const news = [
+    { id: 1, title: "Новость 1", text: "Описание новости 1" },
+    { id: 2, title: "Новость 2", text: "Описание новости 2" },
+    { id: 3, title: "Новость 3", text: "Описание новости 3" },
+    { id: 4, title: "Новость 4", text: "Описание новости 4" },
+    { id: 5, title: "Новость 5", text: "Описание новости 5" },
+    { id: 6, title: "Новость 6", text: "Описание новости 6" },
+  ];
 
   return (
     <div className="container">
-      <h2>Результаты поиска</h2>
+      <h2>Результаты для ИНН: {inn}</h2>
 
-      <button onClick={() => navigate("/search")}>
-        Назад
-      </button>
-
-      <p>Вы искали ИНН: {inn}</p>
-
-      {loading ? (
-        <p>Загрузка...</p>
-      ) : (
-        <div className="news">
-          {news.map((item) => (
-            <div key={item.id} className="news-card">
-              <h3>{item.title}</h3>
-              <p>{item.text}</p>
-            </div>
-          ))}
+      {news.slice(0, visible).map((item) => (
+        <div key={item.id} style={{ border: "1px solid #ccc", padding: "10px", marginBottom: "10px" }}>
+          <h3>{item.title}</h3>
+          <p>{item.text}</p>
         </div>
+      ))}
+
+      {visible < news.length && (
+        <button onClick={() => setVisible(visible + 3)}>
+          Показать ещё
+        </button>
       )}
     </div>
   );
