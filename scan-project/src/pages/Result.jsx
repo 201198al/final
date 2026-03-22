@@ -6,12 +6,34 @@ function Result() {
   const [visible, setVisible] = useState(3);
 
   const news = [
-    { id: 1, title: "Новость 1", text: "Описание новости 1" },
-    { id: 2, title: "Новость 2", text: "Описание новости 2" },
-    { id: 3, title: "Новость 3", text: "Описание новости 3" },
-    { id: 4, title: "Новость 4", text: "Описание новости 4" },
-    { id: 5, title: "Новость 5", text: "Описание новости 5" },
-    { id: 6, title: "Новость 6", text: "Описание новости 6" },
+    {
+      id: 1,
+      title: "Компания показала рост",
+      text: "За последний квартал показатели выросли.",
+      date: "12.03.2024",
+      source: "РБК",
+    },
+    {
+      id: 2,
+      title: "Новый продукт",
+      text: "Компания представила новый сервис.",
+      date: "10.03.2024",
+      source: "ТАСС",
+    },
+    {
+      id: 3,
+      title: "Партнерство",
+      text: "Заключено соглашение с партнёрами.",
+      date: "08.03.2024",
+      source: "Интерфакс",
+    },
+    {
+      id: 4,
+      title: "Рост акций",
+      text: "Акции выросли на 5%",
+      date: "05.03.2024",
+      source: "Ведомости",
+    },
   ];
 
   return (
@@ -19,9 +41,20 @@ function Result() {
       <h2>Результаты для ИНН: {data?.inn}</h2>
 
       {news.slice(0, visible).map((item) => (
-        <div key={item.id} style={{ border: "1px solid #ccc", padding: "10px", marginBottom: "10px" }}>
+        <div
+          key={item.id}
+          style={{
+            border: "1px solid #ccc",
+            padding: "15px",
+            marginBottom: "15px",
+          }}
+        >
+          <p>
+            {item.date} | {item.source}
+          </p>
           <h3>{item.title}</h3>
           <p>{item.text}</p>
+          <button>Читать</button>
         </div>
       ))}
 
