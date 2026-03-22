@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 function Result() {
-  const inn = localStorage.getItem("inn");
+  const data = JSON.parse(localStorage.getItem("searchData"));
 
   const [visible, setVisible] = useState(3);
 
@@ -16,7 +16,7 @@ function Result() {
 
   return (
     <div className="container">
-      <h2>Результаты для ИНН: {inn}</h2>
+      <h2>Результаты для ИНН: {data?.inn}</h2>
 
       {news.slice(0, visible).map((item) => (
         <div key={item.id} style={{ border: "1px solid #ccc", padding: "10px", marginBottom: "10px" }}>

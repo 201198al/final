@@ -44,8 +44,14 @@ const handleSearch = () => {
 
   setError("");
 
-  localStorage.setItem("inn", inn);
-  navigate("/result");
+ localStorage.setItem("searchData", JSON.stringify({
+  inn,
+  dateFrom,
+  dateTo,
+  limit
+}));
+
+navigate("/result");
 }; 
 
   setError("");
