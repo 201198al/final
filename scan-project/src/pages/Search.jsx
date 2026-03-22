@@ -90,4 +90,10 @@ const handleSearch = () => {
   onChange={(e) => setLimit(e.target.value)}
 />
 
+<select>
+  <option>Любая</option>
+  <option>Позитивная</option>
+  <option>Негативная</option>
+</select>
+
 export default Search;
