@@ -1,0 +1,149 @@
+.result-page {
+  background: #f4f4f4;
+  min-height: calc(100vh - 80px);
+  padding: 40px;
+}
+
+.result-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.result-title {
+  font-size: 32px;
+  margin-bottom: 32px;
+  color: #333;
+}
+
+.result-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 80px);
+  gap: 20px;
+}
+
+.result-loading p {
+  color: #666;
+}
+
+.result-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 80px);
+  gap: 20px;
+}
+
+.result-error p {
+  color: #e74c3c;
+  font-size: 18px;
+}
+
+.result-error button {
+  background: #029491;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.result-error button:hover {
+  background: #027a7a;
+}
+
+.histograms {
+  margin-bottom: 40px;
+}
+
+.documents-section {
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.documents-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.documents-header h2 {
+  font-size: 20px;
+  color: #333;
+}
+
+.documents-count {
+  color: #999;
+  font-size: 14px;
+}
+
+.documents-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.load-more-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 32px;
+}
+
+.load-more-btn {
+  background: #fff;
+  border: 1px solid #029491;
+  color: #029491;
+  padding: 12px 32px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.load-more-btn:hover {
+  background: #029491;
+  color: #fff;
+}
+
+.load-more-btn:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.no-documents {
+  text-align: center;
+  padding: 60px 20px;
+  color: #999;
+}
+
+@media (max-width: 768px) {
+  .result-page {
+    padding: 20px;
+  }
+  
+  .result-title {
+    font-size: 24px;
+  }
+  
+  .documents-section {
+    padding: 16px;
+  }
+  
+  .documents-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}

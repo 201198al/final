@@ -1,0 +1,114 @@
+.histogram {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.histogram-title {
+  font-size: 16px;
+  margin-bottom: 16px;
+  color: #333;
+}
+
+.histogram-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.histogram-bars {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px 0;
+  flex: 1;
+}
+
+.histogram-bars::-webkit-scrollbar {
+  height: 4px;
+}
+
+.histogram-bars::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 2px;
+}
+
+.histogram-bars::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 2px;
+}
+
+.histogram-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 80px;
+}
+
+.histogram-bar {
+  width: 40px;
+  height: 100px;
+  background: #029491;
+  border-radius: 4px 4px 0 0;
+  transition: height 0.3s;
+  cursor: pointer;
+}
+
+.histogram-bar:hover {
+  opacity: 0.8;
+}
+
+.histogram-value {
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: 8px;
+  color: #333;
+}
+
+.histogram-date {
+  font-size: 10px;
+  color: #999;
+  margin-top: 4px;
+}
+
+.histogram-arrow {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  color: #666;
+}
+
+.histogram-arrow:hover {
+  background: #f5f5f5;
+  border-color: #029491;
+  color: #029491;
+}
+
+.histogram-arrow.left {
+  margin-right: 12px;
+}
+
+.histogram-arrow.right {
+  margin-left: 12px;
+}
+
+@media (max-width: 768px) {
+  .histogram-item {
+    min-width: 60px;
+  }
+  
+  .histogram-bar {
+    width: 30px;
+  }
+}
