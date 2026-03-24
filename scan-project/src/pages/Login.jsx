@@ -4,43 +4,13 @@ import { useNavigate } from "react-router-dom";
 function Login() {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-
   const navigate = useNavigate();
 
-  const handleLogin = async () => {
+  const handleLogin = () => {
     if (!login || !password) return;
 
-    try {
-      const response = await fetch(
-        "https://gateway.scan-interfax.ru/api/v1/account/login",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify({
-            login: login,
-            password: password,
-          }),
-        }
-      );
-
-      if (!response.ok) {
-        throw new Error("Ошибка авторизации");
-      }
-
-      const data = await response.json();
-
-      
-      localStorage.setItem("token", data.accessToken);
-
-      
-      navigate("/search");
-    } catch (err) {
-      setError("Неверный логин или пароль");
-    }
+    localStorage.setItem("token", "123");
+    navigate("/search");
   };
 
   return (
@@ -65,7 +35,9 @@ function Login() {
         Войти
       </button>
 
-      {error && <p style={{ color: "red" }}>{error}</p>}
+      <p style={{ fontSize: "12px", opacity: 0.6 }}>
+        Демо-версия: введите любые данные
+      </p>
     </div>
   );
 }

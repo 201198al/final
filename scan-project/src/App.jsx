@@ -1,13 +1,16 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
 
-import Home from "./pages/Home.jsx";
-import Login from "./pages/Login.jsx";
-import Search from "./pages/Search.jsx";
-import Result from "./pages/Result.jsx";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Search from "./pages/Search";
+import Result from "./pages/Result";
 
 function App() {
   return (
     <BrowserRouter>
+      <Header />
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />

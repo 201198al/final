@@ -3,103 +3,62 @@ import { useNavigate } from "react-router-dom";
 
 function Search() {
   const [inn, setInn] = useState("");
-  const [dateFrom, setDateFrom] = useState("");
-  const [dateTo, setDateTo] = useState("");
   const [limit, setLimit] = useState(10);
   const [error, setError] = useState("");
+  const [checkbox, setCheckbox] = useState(false);
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (!token) {
-      navigate("/");
+    if (!localStorage.getItem("token")) {
+      navigate("/login");
     }
   }, []);
 
   const handleSearch = () => {
     if (inn.length !== 10 && inn.length !== 12) {
-      setError("ИНН должен быть 10 или 12 цифр");
+      setError("Введите корректный ИНН");
       return;
     }
 
-    if (!dateFrom || !dateTo) {
-      setError("Выберите даты");
-      return;
-    }
-
-    if (new Date(dateFrom) > new Date(dateTo)) {
-      setError("Дата начала больше даты конца");
-      return;
-    }
-
-    if (new Date(dateTo) > new Date()) {
-      setError("Дата не может быть в будущем");
-      return;
-    }
-
-    if (limit < 1 || limit > 1000) {
-      setError("Количество от 1 до 1000");
-      return;
-    }
-
-    setError("");
-
-    localStorage.setItem(
-      "searchData",
-      JSON.stringify({
-        inn,
-        dateFrom,
-        dateTo,
-        limit,
-      })
-    );
+    localStorage.setItem("searchData", JSON.stringify({ inn, limit }));
 
     navigate("/result");
   };
 
   return (
     <div className="container">
-      <h2>Поиск компании</h2>
+      <h2>Найдите необходимые данные</h2>
 
-      <input
-        type="text"
-        placeholder="Введите ИНН"
-        value={inn}
-        onChange={(e) => {
-          setInn(e.target.value);
-          setError("");
-        }}
-      />
+      <div className="card">
+        <input
+          placeholder="ИНН компании"
+          value={inn}
+          onChange={(e) => setInn(e.target.value)}
+        />
 
-      {error && <p style={{ color: "red" }}>{error}</p>}
+        <input
+          type="number"
+          placeholder="Количество документов"
+          value={limit}
+          onChange={(e) => setLimit(e.target.value)}
+        />
 
-      <input
-        type="date"
-        value={dateFrom}
-        onChange={(e) => setDateFrom(e.target.value)}
-      />
+        <label>
+          <input
+            type="checkbox"
+            checked={checkbox}
+            onChange={() => setCheckbox(!checkbox)}
+          />
+          Только позитивные новости
+        </label>
 
-      <input
-        type="date"
-        value={dateTo}
-        onChange={(e) => setDateTo(e.target.value)}
-      />
+        <br /><br />
 
-      <input
-        type="number"
-        placeholder="Количество документов"
-        value={limit}
-        onChange={(e) => setLimit(e.target.value)}
-      />
+        <button onClick={handleSearch}>Поиск</button>
 
-      <select>
-        <option>Любая</option>
-        <option>Позитивная</option>
-        <option>Негативная</option>
-      </select>
-
-      <button onClick={handleSearch}>Поиск</button>
+        {error && <p style={{ color: "red" }}>{error}</p>}
+      </div>
     </div>
   );
 }
